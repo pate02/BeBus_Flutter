@@ -1,5 +1,7 @@
 import 'package:bebus/global/common/my_icon_button.dart';
 import 'package:bebus/global/themes/colors/colors.dart';
+import 'package:bebus/middlepage.dart';
+import 'package:bebus/modules/home/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
@@ -14,12 +16,18 @@ class Topbar extends StatelessWidget {
           margin: EdgeInsets.only(top: 45),
           child: Row(
             children: [
-              MyIconButton(
-                  iconcolor: AppColors.FakeWhite,
-                  backgroundColor: AppColors.FakeBlack,
-                  icon: Iconsax.arrow_left_24,
-                  size: 55,
-                  borderRadius: 20),
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (_) => const Middlepage()));
+                },
+                child: MyIconButton(
+                    iconcolor: AppColors.FakeWhite,
+                    backgroundColor: AppColors.FakeBlack,
+                    icon: Iconsax.arrow_left_24,
+                    size: 55,
+                    borderRadius: 20),
+              ),
               Spacer(),
               MyIconButton(
                   iconcolor: AppColors.FakeWhite,

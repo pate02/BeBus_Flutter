@@ -17,23 +17,24 @@ class Middlepage extends StatefulWidget {
 }
 
 class _MiddlepageState extends State<Middlepage> {
-  int _selectedIndex = 1;
+  int _selectedIndex = 0;
 
   final List<Widget> _pages = <Widget>[
-    const RouteoptionsView(),
     const HomeView(),
+    const RouteoptionsView(),
     const ProfileView()
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+    
+      extendBody: true,
       body: Center(child: _pages.elementAt(_selectedIndex)),
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 70),
         child: Container(
-          margin: EdgeInsets.only(bottom: 16),
+          margin: const EdgeInsets.only(bottom: 10),
           decoration: BoxDecoration(
             color: AppColors.FakeBlack,
             borderRadius: BorderRadius.circular(70),
@@ -49,11 +50,12 @@ class _MiddlepageState extends State<Middlepage> {
                 duration: Duration(milliseconds: 1000),
                 color: AppColors.GreyTxts,
                 tabs: const [
-                  GButton(
-                    icon: Iconsax.routing,
-                  ),
+                  
                   GButton(
                     icon: Iconsax.home,
+                  ),
+                  GButton(
+                    icon: Iconsax.routing,
                   ),
                   GButton(
                     icon: Iconsax.user,

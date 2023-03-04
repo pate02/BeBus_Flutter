@@ -2,13 +2,14 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  static var PrimaryGreen = Color(0xff0DC89C);
-  static var SecondaryOrange = Color(0xffFF6E6F);
-  static var FakeBlack = Color(0xff1A1D27);
-  static var GreyTxts = Color(0xff828282);
-  static var WhiteOrange = Color(0xffFDF0E9);
-  static var SearchBoxColor = Color(0xffF1F2F6);
-  static var CardBackgroundColor = Color(0xffECEEFB);
-  static var FakeWhite = Color(0xffFDFDFD);
-  static var BorderColor = Color(0xffC3C0C0);
+  static var PrimaryGreen = const Color(0xff0DC89C);
+  static var OpacitiedGreen = const Color.fromRGBO(13, 200, 156, 0.15);
+  static var SecondaryOrange = const Color(0xffFF6E6F);
+  static var FakeBlack = const Color(0xff1A1D27);
+  static var GreyTxts = const Color(0xff828282);
+  static var WhiteOrange = const Color(0xffFDF0E9);
+  static var CardBackgroundColor = const Color(0xffF1F2F6);
+  static var FakeWhite = const Color(0xffFDFDFD);
+  static var BorderColor = const Color(0xffCD9D9D9);
+  static var HomeButtons = const Color(0xff424A63);
 }
