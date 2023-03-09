@@ -17,7 +17,7 @@ final Stop stopObj;
     return Expanded(
       flex: 1,
       child: Container(
-        
+        margin: const EdgeInsets.symmetric(horizontal: 16),
         height: 150,
         decoration: BoxDecoration(
             color: AppColors.CardBackgroundColor, borderRadius: BorderRadius.circular(20)),
@@ -32,7 +32,7 @@ final Stop stopObj;
                       backgroundColor: AppColors.PrimaryGreen,
                       icon: Iconsax.location,
                       size: 45,
-                      borderRadius: 12),
+                      borderRadius: 12, borderColor: Colors.transparent,),
                   Spacer(),
                   
                   if(stopObj.isFavorite)
@@ -41,7 +41,7 @@ final Stop stopObj;
                       backgroundColor: Colors.transparent,
                       icon: Iconsax.heart5,
                       size: 45,
-                      borderRadius: 12),
+                      borderRadius: 12, borderColor: Colors.transparent,),
                 ],
                
               ),

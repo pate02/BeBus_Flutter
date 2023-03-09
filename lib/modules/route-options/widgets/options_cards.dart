@@ -11,8 +11,9 @@ class OptionsCards extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 270),
-      // color: Colors.amber,
+      
+      margin: const EdgeInsets.symmetric(horizontal: 16),
+     
       child: Column(
         children: [
           GestureDetector(
@@ -33,7 +34,7 @@ class OptionsCards extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: 15),
+          const SizedBox(height: 15),
           Row(
             children: [
               MyCard(
@@ -46,7 +47,7 @@ class OptionsCards extends StatelessWidget {
                   arrowColor: AppColors.FakeBlack, cubeIconColor: AppColors.FakeWhite ,)
             ],
           ),
-          SizedBox(height: 15),
+          const SizedBox(height: 15),
           Row(
             children: [
               MyCard(

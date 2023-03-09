@@ -1,8 +1,12 @@
+import 'dart:math';
+
 import 'package:bebus/global/common/item_card.dart';
 import 'package:bebus/global/common/navbar.dart';
 import 'package:bebus/global/models/stop.dart';
 import 'package:bebus/global/themes/colors/colors.dart';
 import 'package:bebus/modules/route-options/routeoptions_view.dart';
+import 'package:bebus/modules/stop/stop-details/stopdetails_view.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
@@ -47,81 +51,75 @@ class _StoplistViewState extends State<StoplistView> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: SafeArea(
-        child: Center(
-          child: Container(
-            margin: EdgeInsets.symmetric(horizontal: 16.0),
-            width: double.infinity,
-            height: MediaQuery.of(context).size.height,
-            child: Stack(
-              children: [
-                GestureDetector(
-                  onTap: () {
-                    Navigator.pop(
-                      context,
-                      MaterialPageRoute(
-                          builder: (_) => const RouteoptionsView()),
-                    );
-                  },
-                  child: Navbar(text: 'Cerca fermata'),
-                ),
-                Row(
+      body: Center(
+        child: SizedBox(
+          width: double.infinity,
+          height: MediaQuery.of(context).size.height,
+          child: Stack(
+            children: [
+              Navbar(
+                  text: 'Cerca fermata',
+                  onChanged: (value) {
+                    onSearch(value);
+                  }),
+              Container(
+                margin: const EdgeInsets.only(top: 230, left: 16, right: 16),
+                child: Column(
                   children: [
-                    Expanded(
-                      flex: 1,
-                      child: Container(
-                        margin: EdgeInsets.only(top: 150),
-                        height: 38,
-                        child: TextField(
-                          onChanged: (value) => onSearch(value),
-                          decoration: InputDecoration(
-                              filled: true,
-                              fillColor: Colors.grey[850],
-                              contentPadding: EdgeInsets.all(0),
-                              prefixIcon: Icon(
-                                Icons.search,
-                                color: Colors.grey.shade500,
-                              ),
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(50),
-                                  borderSide: BorderSide.none),
-                              hintStyle: TextStyle(
-                                  fontSize: 14, color: Colors.grey.shade500),
-                              hintText: "Search users"),
+                    Row(
+                      children: [
+                        Text(
+                          'Lista delle fermate',
+                          style: TextStyle(
+                              color: AppColors.FakeBlack,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 18),
                         ),
-                      ),
+                      ],
+                    ),
+                    Divider(
+                      height: 25,
+                      thickness: 1,
+                      color: AppColors.BorderColor,
                     ),
                   ],
                 ),
-                Row(
-                  children: [
-                    Expanded(
-                        child: Container(
-                     margin: const EdgeInsets.only(top: 200),
-                      child: _foundedStops.isNotEmpty
-                          ? ListView.builder(
-                              itemCount: _foundedStops.length,
-                              itemBuilder: (context, index) {
-                                return Container(
+              ),
+              Row(
+                children: [
+                  Expanded(
+                      child: Container(
+                    margin: const EdgeInsets.only(top: 225),
+                    child: _foundedStops.isNotEmpty
+                        ? ListView.builder(
+                            itemCount: _foundedStops.length,
+                            itemBuilder: (context, index) {
+                              return Container(
                                   padding: const EdgeInsets.only(top: 15),
-                                  child: ItemCard(stopObj: _foundedStops[index])
-                                );
-                              })
-                          : const Center(
-                              child: Text(
-                              "No users found",
-                              style: TextStyle(color: Colors.white),
-                            )),
-                    ))
-                  ],
-                )
-              ],
-            ),
+                                  child: GestureDetector(
+                                      onTap: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (_) =>
+                                                  const StopdetailsView()),
+                                        );
+                                      },
+                                      child: ItemCard(
+                                          stopObj: _foundedStops[index])));
+                            })
+                        : Center(
+                            child: Text(
+                            "Nessuna fermata trovata",
+                            style: TextStyle(color: AppColors.FakeBlack),
+                          )),
+                  ))
+                ],
+              )
+            ],
           ),
         ),
       ),
     );
   }
 }
-
-

@@ -42,7 +42,7 @@ class MyCard extends StatelessWidget {
                 child: Container(
                   color: Colors.transparent,
                   child: Padding(
-                      padding: EdgeInsets.all(17),
+                      padding: const EdgeInsets.all(17),
                       child: Container(
                         decoration: BoxDecoration(
                           color: cubeBackColor,
@@ -60,20 +60,19 @@ class MyCard extends StatelessWidget {
               ),
               Expanded(
                 flex: 7,
-                child: Container(
-                  child: Text(
-                    text,
-                    style: TextStyle(
-                        fontWeight: FontWeight.w600,
-                        color: textColor,
-                        fontSize: 18),
-                  ),
+                child: Text(
+                  text,
+                  style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      color: textColor,
+                      fontSize: 18),
                 ),
               ),
               Expanded(
                 flex: 2,
-                child: Container(
-                  child: Center(
+                child: Center(
+                  child: Padding(
+                    padding: const EdgeInsets.only(right: 15),
                     child: Icon(
                       Iconsax.arrow_right_34,
                       size: 24,

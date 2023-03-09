@@ -28,20 +28,16 @@ class HomeHeader extends StatelessWidget {
                     child: Column(
                       children: [
                         Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            MyIconButton(
-                                iconcolor: AppColors.FakeWhite,
-                                backgroundColor: AppColors.HomeButtons,
-                                icon: Iconsax.backward,
-                                size: 55,
-                                borderRadius: 20),
+                            Text('BeBus', style: TextStyle(color: AppColors.FakeWhite,fontWeight: FontWeight.w600,fontSize: 20),),
                             const Spacer(),
                             MyIconButton(
                                 iconcolor: AppColors.FakeWhite,
                                 backgroundColor: AppColors.HomeButtons,
-                                icon: Iconsax.notification,
+                                icon: Iconsax.image,
                                 size: 55,
-                                borderRadius: 20),
+                                borderRadius: 20, borderColor: Colors.transparent,),
                           ],
                         ),
                         const SizedBox(height: 35),

@@ -1,4 +1,3 @@
-import 'package:bebus/modules/favourite-stops/favouritestops_view.dart';
 import 'package:bebus/modules/home/home_view.dart';
 import 'package:bebus/modules/profile/profile_view.dart';
 import 'package:bebus/modules/route-options/routeoptions_view.dart';
@@ -25,51 +24,55 @@ class _MiddlepageState extends State<Middlepage> {
     const ProfileView()
   ];
 
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-    
-      extendBody: true,
-      body: Center(child: _pages.elementAt(_selectedIndex)),
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 70),
-        child: Container(
-          margin: const EdgeInsets.only(bottom: 10),
-          decoration: BoxDecoration(
-            color: AppColors.FakeBlack,
-            borderRadius: BorderRadius.circular(70),
-          ),
-          child: SafeArea(
-            child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 45, vertical: 12.0),
-              child: GNav(
-                activeColor: AppColors.FakeWhite,
-                iconSize: 24,
-                padding: EdgeInsets.symmetric(vertical: 12),
-                duration: Duration(milliseconds: 1000),
-                color: AppColors.GreyTxts,
-                tabs: const [
-                  
-                  GButton(
-                    icon: Iconsax.home,
-                  ),
-                  GButton(
-                    icon: Iconsax.routing,
-                  ),
-                  GButton(
-                    icon: Iconsax.user,
-                  ),
-                ],
-                selectedIndex: _selectedIndex,
-                onTabChange: (index) {
-                  setState(() {
-                    _selectedIndex = index;
-                  });
-                },
-              ),
+      body: Center(
+        child: _pages.elementAt(_selectedIndex),
+      ),
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(boxShadow: [
+          BoxShadow(
+              offset: const Offset(0, -20),
+              blurRadius: 64,
+              color: AppColors.FakeBlack.withOpacity(0.08))
+        ]),
+        height: 70,
+        child: BottomNavigationBar(
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Iconsax.home),
+              label: 'Home',
             ),
+            BottomNavigationBarItem(
+              icon: Icon(Iconsax.routing),
+              label: 'Tratte',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Iconsax.user),
+              label: 'Profilo',
+            ),
+          ],
+          currentIndex: _selectedIndex,
+          selectedItemColor: AppColors.PrimaryGreen,
+          unselectedItemColor: AppColors.FakeBlack,
+          backgroundColor: Colors.white,
+          // unselectedFontSize: 14,
+          selectedLabelStyle: const TextStyle(
+            fontWeight: FontWeight.w500,
+            height: 1.70,
           ),
+          unselectedLabelStyle: const TextStyle(
+            fontWeight: FontWeight.w400,
+            height: 1.70,
+          ),
+          onTap: _onItemTapped,
         ),
       ),
     );

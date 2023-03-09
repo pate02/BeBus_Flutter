@@ -10,67 +10,78 @@ class Topbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          margin: EdgeInsets.only(top: 45),
-          child: Row(
-            children: [
-              GestureDetector(
-                onTap: () {
-                  Navigator.pushReplacement(context,
-                      MaterialPageRoute(builder: (_) => const Middlepage()));
-                },
-                child: MyIconButton(
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 16.0),
+      child: Column(
+        children: [
+          Container(
+            margin: EdgeInsets.only(top: 70),
+            child: Row(
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (_) => const Middlepage()));
+                  },
+                  child: MyIconButton(
                     iconcolor: AppColors.FakeWhite,
-                    backgroundColor: AppColors.FakeBlack,
+                    backgroundColor: Colors.transparent,
                     icon: Iconsax.arrow_left_24,
                     size: 55,
-                    borderRadius: 20),
-              ),
-              Spacer(),
-              MyIconButton(
-                  iconcolor: AppColors.FakeWhite,
-                  backgroundColor: AppColors.SecondaryOrange,
-                  icon: Iconsax.heart,
+                    borderRadius: 20,
+                    borderColor: AppColors.FakeWhite,
+                  ),
+                ),
+                Spacer(),
+                MyIconButton(
+                  iconcolor: AppColors.PrimaryGreen,
+                  backgroundColor: AppColors.OpacitiedGreen,
+                  icon: Iconsax.heart5,
                   size: 55,
-                  borderRadius: 20)
-            ],
+                  borderRadius: 20,
+                  borderColor: Colors.transparent,
+                )
+              ],
+            ),
           ),
-        ),
-        Container(
-          margin: EdgeInsets.only(top: 40),
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  Expanded(
-                    child: Text(
-                      'Come vuoi cercare?',
-                      style:
-                          TextStyle(fontWeight: FontWeight.w600, fontSize: 28, color: AppColors.FakeBlack),
-                    ),
-                  )
-                ],
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 15),
-                child: Row(
+          Container(
+            margin: EdgeInsets.only(top: 40),
+            child: Column(
+              children: [
+                Row(
                   children: [
                     Expanded(
                       child: Text(
-                        'Per vedere i dettagli delle tratte, seleziona l’opzione che preferisci.',
+                        'Scegli come cercare',
                         style: TextStyle(
-                            fontWeight: FontWeight.w400, fontSize: 16 , color: AppColors.GreyTxts),
+                            fontWeight: FontWeight.w600,
+                            fontSize: 28,
+                            color: AppColors.FakeWhite),
                       ),
                     )
                   ],
                 ),
-              ),
-            ],
-          ),
-        )
-      ],
+                Padding(
+                  padding: const EdgeInsets.only(top: 15),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Text(
+                          'Con queste opzioni puoi trovare la fermata in cui prendere il bus.',
+                          style: TextStyle(
+                              fontWeight: FontWeight.w400,
+                              fontSize: 16,
+                              color: AppColors.GreyTxts),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          )
+        ],
+      ),
     );
   }
 }
