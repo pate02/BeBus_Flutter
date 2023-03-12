@@ -92,6 +92,7 @@ class _StoplistViewState extends State<StoplistView> {
                     margin: const EdgeInsets.only(top: 225),
                     child: _foundedStops.isNotEmpty
                         ? ListView.builder(
+                            physics: const BouncingScrollPhysics(),
                             itemCount: _foundedStops.length,
                             itemBuilder: (context, index) {
                               return Container(

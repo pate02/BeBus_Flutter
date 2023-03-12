@@ -29,7 +29,7 @@ class Topbar extends StatelessWidget {
                     icon: Iconsax.arrow_left_24,
                     size: 55,
                     borderRadius: 20,
-                    borderColor: AppColors.FakeWhite,
+                    borderColor: Colors.transparent,
                   ),
                 ),
                 Spacer(),

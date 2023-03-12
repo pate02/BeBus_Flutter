@@ -26,7 +26,7 @@ class RouteoptionsView extends StatelessWidget {
                           topRight: Radius.circular(35))
                 ),
                 child: const Padding(
-                  padding: EdgeInsets.only(top: 40),
+                  padding: EdgeInsets.only(top: 45),
                   child: OptionsCards(),
                 ),
               ),
